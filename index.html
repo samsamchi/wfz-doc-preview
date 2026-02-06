@@ -110,9 +110,9 @@
 <h1>Workbench for Zephyr (Visual Studio Code)</h1>
 
 <p>
-  Ac6 <span class="guilabel">Workbench for Zephyr</span> is a Visual Studio Code extension
+  <span class="guilabel">Workbench for Zephyr</span> is a Visual Studio Code extension
   that adds Zephyr development support, including <strong>SDK management</strong>,
-  <strong>project wizard</strong>, <strong>build/flash</strong>, and <strong>debugging</strong>.
+  <strong>project creation wizard</strong>, <strong>build/flash</strong>, and <strong>debugging</strong>.
 </p>
 
 <p>
@@ -125,11 +125,11 @@
 
 <ul>
   <li>Install native <span class="guilabel">Host Tools</span> (python, cmake, ...)</li>
-  <li>Install and assign Zephyr SDK</li>
+  <li>Install and assign toolchains (Zephyr SDK, IAR, ...)</li>
   <li>Import West workspaces</li>
   <li>Create and import Zephyr applications</li>
   <li>Build and Flash applications</li>
-  <li>Debug applications</li>
+  <li>Debug manager</li>
   <li>Install Runners automatically</li>
   <li>Memory and Static analysis</li>
 </ul>
@@ -143,7 +143,7 @@
       <li>Ubuntu</li>
       <li>Debian</li>
       <li>Fedora</li>
-      <li>Other distributions were not tested</li>
+      <li>Other distributions may also work (not tested)</li>
     </ul>
   </li>
   <li>macOS</li>
@@ -170,7 +170,7 @@
   <li>
     <strong>Install Host Tools</strong><br>
     Click <span class="guilabel">Install Host Tools</span> to download and install the native tools
-    (typically into <code>${USERDIR}/.zinstaller</code>).
+    (typically into <code>${HOME}/.zinstaller</code>).
   </li>
 </ol>
 
@@ -325,3 +325,4 @@
 
 </body>
 </html>
+
