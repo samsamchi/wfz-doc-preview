@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Workbench for Zephyr (Visual Studio Code)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -14,12 +15,8 @@
       color: #222;
     }
 
-    h1, h2, h3 {
-      color: #1a1a1a;
-    }
-
     h1 {
-      border-bottom: 3px solid #ddd;
+      border-bottom: 3px solid #ccc;
       padding-bottom: 10px;
     }
 
@@ -33,6 +30,10 @@
       margin-left: 20px;
     }
 
+    li {
+      margin-bottom: 6px;
+    }
+
     code {
       background: #f4f4f4;
       padding: 2px 6px;
@@ -40,9 +41,18 @@
       font-family: Consolas, monospace;
     }
 
+    .guilabel {
+      font-weight: bold;
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 0.95em;
+    }
+
     .note {
       background: #f0f7ff;
-      border-left: 4px solid #3b82f6;
+      border-left: 4px solid #2563eb;
       padding: 12px 16px;
       margin: 20px 0;
     }
@@ -53,7 +63,8 @@
     }
 
     figure img {
-      max-width: 100%;
+      max-width: 800px;
+      width: 100%;
       height: auto;
       border: 1px solid #ddd;
       border-radius: 6px;
@@ -91,25 +102,29 @@
     }
   </style>
 </head>
+
 <body>
+
+<a id="workbench_for_zephyr"></a>
 
 <h1>Workbench for Zephyr (Visual Studio Code)</h1>
 
 <p>
-  Ac6 <strong>Workbench for Zephyr</strong> is a Visual Studio Code extension that adds Zephyr
-  development support, including <strong>SDK management</strong>, <strong>project wizard</strong>,
-  <strong>build/flash</strong>, and <strong>debugging</strong>.
+  Ac6 <span class="guilabel">Workbench for Zephyr</span> is a Visual Studio Code extension
+  that adds Zephyr development support, including <strong>SDK management</strong>,
+  <strong>project wizard</strong>, <strong>build/flash</strong>, and <strong>debugging</strong>.
 </p>
 
 <p>
-  Check the <a href="https://youtu.be/1RB0GI6rJk0?si=_D2AA3KurzCwLtRv">Getting started tutorial</a>
+  Check the
+  <a href="https://youtu.be/1RB0GI6rJk0?si=_D2AA3KurzCwLtRv">Getting started tutorial</a>
   for a walkthrough.
 </p>
 
 <h2>Key features</h2>
 
 <ul>
-  <li>Install native <strong>Host Tools</strong> (python, cmake, ...)</li>
+  <li>Install native <span class="guilabel">Host Tools</span> (python, cmake, ...)</li>
   <li>Install and assign Zephyr SDK</li>
   <li>Import West workspaces</li>
   <li>Create and import Zephyr applications</li>
@@ -122,7 +137,7 @@
 <h2>Compatibility</h2>
 
 <ul>
-  <li>Windows 10–11</li>
+  <li>Windows 10-11</li>
   <li>Linux (x86_64)
     <ul>
       <li>Ubuntu</li>
@@ -148,34 +163,41 @@
 
   <li>
     <strong>Open the Workbench for Zephyr extension</strong><br>
-    In the Activity Bar, click the <strong>Workbench for Zephyr</strong> icon.
+    In the Activity Bar, click the
+    <span class="guilabel">Workbench for Zephyr</span> icon.
   </li>
 
   <li>
     <strong>Install Host Tools</strong><br>
-    Click <strong>Install Host Tools</strong> to download and install the native tools
+    Click <span class="guilabel">Install Host Tools</span> to download and install the native tools
     (typically into <code>${USERDIR}/.zinstaller</code>).
   </li>
 </ol>
 
 <figure>
-  <img src="img/workbench_for_zephyr_install_host_tools.webp" alt="Installing Host Tools">
+  <img src="img/workbench_for_zephyr_install_host_tools.webp"
+       alt="Installing Host Tools in Workbench for Zephyr">
   <figcaption>Installing Host Tools in Workbench for Zephyr</figcaption>
 </figure>
 
 <div class="note">
-  <strong>Note:</strong> Some tools may require administrator privileges.
+  <strong>Note:</strong><br>
+  Some tools may require administrator privileges.
 </div>
 
 <ol start="4">
   <li>
     <strong>Import a toolchain</strong><br>
-    Click <strong>Import Toolchain</strong>, choose the SDK version/toolchains you need,
-    and select the destination folder.
+    Click <span class="guilabel">Import Toolchain</span>, choose the SDK version/toolchains you need,
+    and select the destination folder. The SDK provides toolchains used to build and debug Zephyr
+    applications. You can select the toolchain of choice (for example, IAR or the Zephyr SDK)
+    either the full or minimal version by selecting the toolchain only for the targets you need.
   </li>
 
   <li>
-    <strong>Initialize / Import a West workspace</strong>
+    <strong>Initialize / Import a West workspace</strong><br>
+    Click <span class="guilabel">Initialize workspace</span> and fill the workspace information.
+    For example:
   </li>
 </ol>
 
@@ -209,28 +231,96 @@
     </tr>
     <tr>
       <td>Location</td>
-      <td>Directory where the west workspace will be imported</td>
+      <td>
+        Enter the directory where the west workspace will be imported
+        (the directory name will serve as workspace name)
+      </td>
     </tr>
   </tbody>
 </table>
 
+<p>
+  Workbench will create the workspace and parse the west manifest to configure projects.
+</p>
+
+<ol start="6">
+  <li>
+    <strong>Create a new application</strong><br>
+    On Workbench for Zephyr, new projects are based on samples from Zephyr sources.
+    <ul>
+      <li>Click <span class="guilabel">Create New Application</span>.</li>
+      <li>Select the <span class="guilabel">West Workspace</span> to attach to.</li>
+      <li>Select the <span class="guilabel">Zephyr SDK</span> to use.</li>
+      <li>
+        Select the target <span class="guilabel">Board</span>
+        (for example, <code>ST STM32F4 Discovery</code>).
+      </li>
+      <li>
+        Select the <span class="guilabel">Sample</span> project to base on
+        (for example, <code>hello_world</code>).
+      </li>
+      <li>Enter the project name.</li>
+      <li>Enter the project location.</li>
+    </ul>
+  </li>
+</ol>
+
 <figure>
-  <img src="img/workbench_for_zephyr_application.webp" alt="Creating a new application">
-  <figcaption>Creating a new application from a sample</figcaption>
+  <img src="img/workbench_for_zephyr_application.webp"
+       alt="Creating a new application from a sample in Workbench for Zephyr">
+  <figcaption>Creating a new application from a sample in Workbench for Zephyr</figcaption>
 </figure>
+
+<ol start="7">
+  <li>
+    <strong>Build the application</strong><br>
+    Click <span class="guilabel">Build</span> in the status bar, or select the application folder
+    to build. Build output is shown in the integrated terminal.
+  </li>
+
+  <li>
+    <strong>Configure and run a debug session</strong><br>
+    Use <span class="guilabel">Debug Manager</span> to generate/update
+    <code>.vscode/launch.json</code>:
+    <ul>
+      <li>Generated ELF (Program Path)</li>
+      <li>SVD file (optional)</li>
+      <li>GDB/port/address (if needed)</li>
+      <li>Debug server/runner (OpenOCD, J-Link, LinkServer, pyOCD, ...)</li>
+    </ul>
+  </li>
+</ol>
+
+<figure>
+  <img src="img/workbench_for_zephyr_debug_manager.webp"
+       alt="Debug Manager in Workbench for Zephyr">
+  <figcaption>Debug Manager in Workbench for Zephyr</figcaption>
+</figure>
+
+<p>
+  Then start debugging normally via <span class="guilabel">Run and Debug</span>
+</p>
 
 <h2>Install Runners</h2>
 
 <p>
   Workbench for Zephyr can provide installers for some runners
   (for example, OpenOCD and STM32CubeProgrammer).
+  Use <span class="guilabel">Install Runners</span> to view supported tools and install them
+  (or open the vendor website).
 </p>
 
 <h2>Useful links</h2>
 
 <ul>
-  <li><a href="https://github.com/Ac6Embedded/vscode-zephyr-workbench">Extension repository</a></li>
-  <li><a href="https://z-workbench.com/">Full documentation</a></li>
+  <li>
+    You can explore the
+    <a href="https://github.com/Ac6Embedded/vscode-zephyr-workbench">Extension repository</a>
+  </li>
+  <li>
+    For more details, check out the
+    <a href="https://z-workbench.com/">Full documentation</a>
+  </li>
 </ul>
 
 </body>
